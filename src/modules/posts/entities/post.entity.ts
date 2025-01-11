@@ -12,7 +12,7 @@ export class Post {
   @Column({ nullable: true })
   url: string;
 
-  @Column({ nullable: true })
+  @Column('text')
   text: string;
 
   @Column({ nullable: true })
