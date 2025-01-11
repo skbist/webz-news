@@ -6,7 +6,7 @@ import { getError } from '../common/utils/error-handler';
 
 @Injectable()
 export class WebzService {
-  private readonly apiUrl: string;
+  readonly apiUrl: string;
   private readonly logger = new Logger(WebzService.name);
   private readonly WEBZ_BASE_URL = WEBZ_BASE_URL;
   private readonly WEBZ_API_TOKEN = process.env.WEBZ_API_TOKEN;
@@ -34,7 +34,7 @@ export class WebzService {
       );
       return postsResponse.data;
     } catch (error) {
-      this.logger.error('Error occurred fetching congress members: ', error);
+      this.logger.error('Error occurred fetching webz posts: ', error);
       const dataError = getError(error);
       throw new HttpException(dataError, dataError.status);
     }
