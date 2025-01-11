@@ -1,1 +1,20 @@
-export class Post {}
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class Post {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Index()
+  @Column()
+  title: string;
+
+  @Column({ nullable: true })
+  url: string;
+
+  @Column({ nullable: true })
+  text: string;
+
+  @Column({ nullable: true })
+  author: string;
+}
