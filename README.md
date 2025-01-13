@@ -22,6 +22,20 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## Description - Implementation Flow
+**1. User Submits Query:**
+The user submits a query, such as a keyword (e.g., "dollar"), along with optional pagination values (e.g., page number and limit). If pagination values are not provided, default values will be used.
+
+**2. Service Calls Third-Party Webz API:**
+The service makes a request to a third-party service (the Webz API) to retrieve posts related to the submitted query. The query and pagination details are passed along with the request to the API.
+
+**3.Service Saves Posts to Database:**
+Upon receiving a response from the Webz API, the service processes the retrieved posts and saves them into the local database for future use.
+
+**4.Response Returned to User:**
+After saving the posts to the database, the service returns a response to the user, which includes the fetched posts, along with metadata such as total count and any available pagination information for subsequent requests.
+
+
 ## Project setup
 ** Make sure  docker, node and nest js is installed 
 
