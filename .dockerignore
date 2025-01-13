@@ -1,0 +1,7 @@
+nginx
+node_modules
+.git
+.gitignore
+dist
+src/sub-modules/arweave-module/node_modules
+src/sub-modules/arweave-module/dist
