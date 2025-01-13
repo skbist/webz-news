@@ -34,7 +34,7 @@ describe('PostsService', () => {
         {
           provide: 'PostProvider',
           useValue: mockPostProvider,
-        }
+        },
       ],
     }).compile();
 
@@ -173,7 +173,6 @@ describe('PostsService', () => {
         .mockResolvedValue(mockEmptyPostResponse);
 
       const result = await service.getPosts(queryPostDto);
-      console.log('result' + JSON.stringify(result));
 
       expect(result).toEqual({
         count: 0,
