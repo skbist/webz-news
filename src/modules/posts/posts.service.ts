@@ -25,10 +25,19 @@ export class PostsService {
       pagination.limit ?? DEFAULT_PAGE_SIZE,
       search,
     );
+    if (!postResponse || !postResponse.posts?.length) {
+      this.logger.warn('No posts retrieved from the provider');
+      return {
+        count: 0,
+        posts: [],
+        moreRemaining: 0,
+      };
+    }
 
-    await this.postRepository.save(postResponse.posts);
+    const savedPosts = await this.postRepository.save(postResponse.posts);
     return {
       count: postResponse.posts.length,
+      posts: savedPosts,
       moreRemaining: postResponse.moreAvailableResults,
     };
   }
