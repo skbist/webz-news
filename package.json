@@ -28,7 +28,8 @@
     "db:clear": "node -r tsconfig-paths/register -r ts-node/register ./src/scripts/clearDB.ts",
     "seed:create": "yarn typeorm-seed migration:create",
     "seed:revert": "yarn typeorm-seed-datasource migration:revert",
-    "migration:revert": "yarn typeorm migration:revert"
+    "migration:revert": "yarn typeorm migration:revert",
+    "migration:run": "yarn typeorm migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

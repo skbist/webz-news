@@ -1,8 +1,8 @@
-version: '3.8'
 
 services:
- nestjs:
-    build: .
+  nestjs:
+    build:
+      context: .
     image: webz-news
     ports:
       - '3080:3080'
@@ -10,29 +10,25 @@ services:
       - .:/usr/src/webz-news
       - /usr/src/webz-news/node_modules
     working_dir: /usr/src/webz-news
-    networks:
-      - slm-back
     environment:
-      - NODE_ENV=development
-      - DB_HOST=postgres  # Database hostname if using PostgreSQL
-      - DB_PORT=5432
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=webzdb
-      
+      NODE_ENV: development
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: webzdb
     depends_on:
-      - postgres 
-    command: ["yarn", "start:dev"]
-
-postgres:
+      - postgres
+    command: ["sh", "-c", "yarn migration:run && yarn start:dev"]
+  postgres:
     image: postgres:13
     container_name: postgres-db
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: webzdb
     ports:
-      - "5432:5432"  # Expose the PostgreSQL port
+      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -40,8 +36,3 @@ volumes:
   postgres_data:
     driver: local
 
-
-networks:
-  slm-back:
-    external: true
-    name: slm-back

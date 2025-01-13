@@ -8,7 +8,7 @@ export const typeOrmModuleOptions: TypeOrmModuleOptions = {
   port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 5432,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: 'webz_news',
+  database: 'webzdb',
   entities: [__dirname + '/../../**/entities/*.entity.{ts,js}'],
   /* Note : it is unsafe to use synchronize: true for schema synchronization
     on production once you get data in your database. */
