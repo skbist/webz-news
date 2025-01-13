@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { WebzModule } from './modules/webz/webz.module';
+import { PostIntegrationModule } from './modules/post-integration/post.integration.module';
 import { PostsModule } from './modules/posts/posts.module';
 
 @Module({
@@ -10,7 +10,7 @@ import { PostsModule } from './modules/posts/posts.module';
     ConfigModule.forRoot({
       isGlobal: true, // Makes the config available globally
     }),
-    WebzModule,
+    PostIntegrationModule,
     PostsModule,
   ],
   controllers: [AppController],
