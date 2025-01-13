@@ -26,7 +26,9 @@
 ** Make sure  docker, node and nest js is installed 
 
 ### Create .env file and add necessary values.
+```bash
 $ cp .env.example .env
+```
 
 ### run unit tests manually(usually run on CI)
 ```bash
