@@ -39,10 +39,16 @@ export class WebzService implements PostProvider {
     const offset: number = page * pageSize + 1;
 
     try {
+      this.logger.log(
+        `Calling Webz API to retrieve ${pageSize} posts, starting from offset ${offset}`,
+      );
+
       const postsResponse = await axios.get<WebzPostsResponse>(
         `${this.apiUrl}&from=${offset}&size=${pageSize}&q=${query}`,
       );
+      this.logger.log(`Webz posts request completed with succes rsponse`);
 
+      this.logger.log(`Mapping webz response to posts data`);
       const mappedPosts = postsResponse.data.posts.map((post) => ({
         title: post.title,
         url: post.thread.url,
@@ -50,7 +56,7 @@ export class WebzService implements PostProvider {
         published: new Date(post.published),
         text: post.text,
       }));
-
+      this.logger.log(`Successfully  mapped ${mappedPosts.length} posts`);
       return {
         posts: mappedPosts,
         moreAvailableResults: postsResponse.data.moreResultsAvailable,
