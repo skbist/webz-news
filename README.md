@@ -22,10 +22,6 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Project setup
 ** Make sure  docker is installed 
 ### build docker image
@@ -33,10 +29,21 @@
 $ docker-compose up --build
 ```
 
+### run docker image
+```bash
+$ docker-compose up
+```
+
 ### make curl request(sample)
 ```bash
-$ curl --location --globoff --request GET 'http://localhost:3080/posts?search=dollar&pagination={%22page%22%3A%201%2C%22pageSize%22%3A%2010}' 
+$ curl 'http://localhost:3080/posts?search=dollar&pagination={%22page%22%3A%201%2C%22pageSize%22%3A%2010}'
 ```
+
+### stop server
+```bash
+$ docker-compose down
+```
+
 <!-- ```bash
 $ yarn install
 ```
