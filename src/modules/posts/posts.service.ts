@@ -18,6 +18,12 @@ export class PostsService {
     private postRepository: Repository<Post>,
     @Inject('PostProvider') private readonly postProvider: PostProvider,
   ) {}
+
+  /**
+   * retireves posts section from webz api based on page size and  query params
+   * @param {QueryPostDto} queryPostDto - query params with pagination details and search query
+   * @returns {Promise<{number, Posts[], number}>} - aggregated data of fetch posts, counts and remaining posts
+   */
   async getPosts(queryPostDto: QueryPostDto) {
     const { search, pagination } = queryPostDto;
     const { page = DEFAULT_PAGE, limit = DEFAULT_PAGE_SIZE } = pagination;
