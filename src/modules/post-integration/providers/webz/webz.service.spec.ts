@@ -48,7 +48,7 @@ describe('WebzService', () => {
             text: 'Sample post content',
           },
         ],
-        moreResultsAvailable: true,
+        moreResultsAvailable: 10,
       },
     };
 
@@ -71,7 +71,7 @@ describe('WebzService', () => {
             text: 'Sample post content',
           },
         ],
-        moreAvailableResults: true,
+        moreAvailableResults: 10,
       });
 
       const offset = page * pageSize + 1;
@@ -114,7 +114,7 @@ describe('WebzService', () => {
             text: 'Sample post content',
           },
         ],
-        moreAvailableResults: true,
+        moreAvailableResults: 10,
       });
 
       const offset = page * pageSize + 1;

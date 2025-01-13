@@ -82,7 +82,7 @@ export class ListParamsDto implements ListParams {
   @IsOptional()
   @ValidateNested()
   @Type(() => Filter)
-  filters: Filter;
+  filters?: Filter;
 
   @IsOptional()
   published?: boolean;
