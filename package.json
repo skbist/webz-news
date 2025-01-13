@@ -17,7 +17,18 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm/cli.js --dataSource ./src/config/db/orm.config.ts",
+    "typeorm-seed": "node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm/cli.js",
+    "typeorm-seed-datasource": "yarn typeorm-seed --dataSource ./src/config/db/orm.seed.config.ts",
+    "db:migrate": "yarn typeorm migration:run",
+    "db:drop": "yarn typeorm schema:drop",
+    "db:seed": "yarn typeorm-seed-datasource migration:run",
+    "db:reset": "yarn db:drop && yarn db:migrate && yarn db:seed",
+    "db:clear": "node -r tsconfig-paths/register -r ts-node/register ./src/scripts/clearDB.ts",
+    "seed:create": "yarn typeorm-seed migration:create",
+    "seed:revert": "yarn typeorm-seed-datasource migration:revert",
+    "migration:revert": "yarn typeorm migration:revert"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
