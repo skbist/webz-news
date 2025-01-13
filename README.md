@@ -25,6 +25,9 @@
 ## Project setup
 ** Make sure  docker, node and nest js is installed 
 
+### Create .env file and add necessary values.
+$ cp .env.example .env
+
 ### run unit tests manually(usually run on CI)
 ```bash
 $ docker-compose up --build
