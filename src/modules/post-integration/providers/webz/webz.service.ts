@@ -22,7 +22,7 @@ export class WebzService implements PostProvider {
    * @param {number} page - page of pagination
    * @param {number} pageSize id of an asset
    * @param {string} query search keyowrds
-   * @returns {Promise<WebzPostsResponse>} - Response  of webz api
+   * @returns {Promise<{Array<PostResponseDto>,number}>} - mapped posts from webz api and number of additional  posts
    */
   public async fetchPosts(
     page: number,
