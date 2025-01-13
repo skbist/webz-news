@@ -6,6 +6,7 @@ import { PostIntegrationModule } from './modules/post-integration/post.integrati
 import { PostsModule } from './modules/posts/posts.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmModuleOptions } from './config/db/orm.config';
+import appconfig from './config/appconfig';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { typeOrmModuleOptions } from './config/db/orm.config';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [configuration],
+      load: [appconfig],
     }),
     PostIntegrationModule,
     PostsModule,
