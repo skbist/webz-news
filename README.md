@@ -23,7 +23,13 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Project setup
-** Make sure  docker is installed 
+** Make sure  docker, node and nest js is installed 
+
+### run unit tests manually(usually run on CI)
+```bash
+$ docker-compose up --build
+```
+
 ### build docker image
 ```bash
 $ docker-compose up --build
